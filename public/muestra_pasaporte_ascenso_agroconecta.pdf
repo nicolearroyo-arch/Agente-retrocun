@@ -1,0 +1,59 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1335 >>
+stream
+BT
+/F1 10 Tf
+50 740 Td
+14 TL
+(CORPORACION UNIFICADA NACIONAL DE EDUCACION SUPERIOR CUN) '
+(PASAPORTE DE ASCENSO - ESPIRITU EMPRENDEDOR E INNOVACION) '
+(Proyecto: AgroConecta Cundinamarca) '
+(Integrantes: Laura Gomez, Carlos Mendez, Julian Rojas - Ficha 51189) '
+() '
+(1. CONTEXTO Y PROBLEMA:) '
+(ODS 2 Hambre Cero y ODS 8 Trabajo Decente. Senales del entorno en Corabastos y DANE.) '
+(Observacion de campo en Choachi con 6 campesinos paperos.) '
+() '
+(2. USUARIO Y FORMULACION DEL PROBLEMA:) '
+(Arbol de problemas con causas raices y efectos sistemicos.) '
+(Radar del usuario con Don Rigoberto. Diferenciacion clara: Usuario campesino vs Cliente restaurantes.) '
+(Reto HMW: Como podriamos conectar cosechas con restaurantes a precio justo.) '
+() '
+(3. IDEACION BANG Y PROPUESTA DE VALOR:) '
+(10 ideas desarrolladas con los 5 personajes Crispi, Cori, Cristal, Cesia, Carmel.) '
+(Matriz de evaluacion cumple regla estricta de 20 pts por fila: Viabilidad 20, Factibilidad 20, Deseabilidad 20.) '
+(Propuesta de valor: Abastecimiento directo de campo a mesa en 12 horas.) '
+() '
+(4. LEAN CANVAS Y PROTOTIPO:) '
+(Diligenciamiento de los 9 bloques. Ventaja diferencial con red de confianza de AsoproHato.) '
+(Prototipo navegable en Figma interactivo https://figma.com/proto/agroconecta) '
+(Uso responsable de IA con bitacora de prompts.) '
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1698
+%%EOF

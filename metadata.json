@@ -1,0 +1,6 @@
+{
+  "name": "RetroACA - Copiloto de Evaluación Formativa CUN",
+  "description": "Plataforma de evaluación formativa y retroalimentación pedagógica para proyectos Pasaporte de Ascenso en Espíritu Emprendedor e Innovación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
