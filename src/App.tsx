@@ -7,6 +7,7 @@ import { RubricGuideModal } from './components/RubricGuideModal';
 import { BangGuideModal } from './components/BangGuideModal';
 import { CopilotChatDrawer } from './components/CopilotChatDrawer';
 import { PrintReportView } from './components/PrintReportView';
+import { NetlifyPublishModal } from './components/NetlifyPublishModal';
 import { EvaluationResult } from './types';
 import { AlertCircle, CheckCircle2, Bot, Sparkles, Award } from 'lucide-react';
 
@@ -20,6 +21,7 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isNetlifyModalOpen, setIsNetlifyModalOpen] = useState(false);
 
   // Load history from localStorage
   useEffect(() => {
@@ -168,6 +170,7 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         historyCount={history.length}
+        onOpenNetlifyModal={() => setIsNetlifyModalOpen(true)}
       />
 
       {/* Main Container */}
@@ -258,6 +261,12 @@ export default function App() {
         isOpen={isChatOpen}
         onClose={() => setIsChatOpen(false)}
         evaluation={currentEvaluation}
+      />
+
+      {/* Netlify Deployment & Extraction Modal */}
+      <NetlifyPublishModal
+        isOpen={isNetlifyModalOpen}
+        onClose={() => setIsNetlifyModalOpen(false)}
       />
 
       {/* Hidden Printable Official Report View */}

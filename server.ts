@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI, Type } from '@google/genai';
 import { createServer as createViteServer } from 'vite';
@@ -376,7 +378,7 @@ Preparar la sustentación oral demostrando cómo la solución alivia el dolor es
 }
 
 // POST /api/extract-pdf
-app.post('/api/extract-pdf', async (req, res) => {
+app.post(['/api/extract-pdf', '/extract-pdf'], async (req, res) => {
   try {
     const { pdfBase64, fileName } = req.body;
     if (!pdfBase64) {
@@ -413,7 +415,7 @@ app.post('/api/extract-pdf', async (req, res) => {
 });
 
 // POST /api/evaluate
-app.post('/api/evaluate', async (req, res) => {
+app.post(['/api/evaluate', '/evaluate'], async (req, res) => {
   let effectiveText = '';
   let fileName = req.body.fileName || '';
   let pdfPages = 0;
@@ -767,8 +769,25 @@ ${currentEvaluation ? JSON.stringify(currentEvaluation, null, 2) : 'Aún no se h
 });
 
 // GET /api/health
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({ status: 'ok', hasGeminiKey: Boolean(apiKey), time: new Date().toISOString() });
+});
+
+// GET /api/export-project: Generates and streams full repository tarball for Netlify
+app.get(['/api/export-project', '/export-project'], (req, res) => {
+  try {
+    const archivePath = path.join(__dirname, 'public', 'retroaca-project.tar.gz');
+    // Ensure public directory exists
+    if (!fs.existsSync(path.join(__dirname, 'public'))) {
+      fs.mkdirSync(path.join(__dirname, 'public'), { recursive: true });
+    }
+    // Refresh archive bundle
+    execSync("tar --exclude='node_modules' --exclude='.git' --exclude='dist' -czf public/retroaca-project.tar.gz .", { cwd: __dirname });
+    res.download(archivePath, 'retroaca-pasaporte-ascenso-netlify.tar.gz');
+  } catch (err) {
+    console.error('Error al exportar proyecto:', err);
+    res.status(500).json({ error: 'No se pudo generar el archivo comprimido del proyecto.' });
+  }
 });
 
 async function startServer() {
@@ -793,4 +812,9 @@ async function startServer() {
   });
 }
 
-startServer();
+// Start standalone dev server only when NOT running inside Netlify Serverless Functions
+if (!process.env.NETLIFY && process.env.NODE_ENV !== 'test') {
+  startServer();
+}
+
+export { app };

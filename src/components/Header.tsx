@@ -1,16 +1,18 @@
 import React from 'react';
-import { Award, BookOpen, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Award, BookOpen, Sparkles, CheckCircle2, Globe } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: 'evaluate' | 'history' | 'rubric' | 'bangGuide';
   setActiveTab: (tab: 'evaluate' | 'history' | 'rubric' | 'bangGuide') => void;
   historyCount: number;
+  onOpenNetlifyModal: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   activeTab,
   setActiveTab,
-  historyCount
+  historyCount,
+  onOpenNetlifyModal
 }) => {
   return (
     <header className="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-md no-print">
@@ -91,6 +93,16 @@ export const Header: React.FC<HeaderProps> = ({
               <Sparkles className="w-4 h-4 text-amber-400" />
               <span className="hidden md:inline">Guía BANG & Canvas</span>
               <span className="md:hidden">BANG</span>
+            </button>
+
+            <button
+              onClick={onOpenNetlifyModal}
+              className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 flex items-center space-x-1.5 bg-[#00C7B7]/15 text-[#00C7B7] hover:bg-[#00C7B7]/25 border border-[#00C7B7]/30 shadow-xs ml-1"
+              title="Guía y código para publicar en Netlify"
+            >
+              <Globe className="w-3.5 h-3.5 text-[#00C7B7]" />
+              <span className="hidden sm:inline">Publicar en Netlify</span>
+              <span className="sm:hidden">Netlify</span>
             </button>
           </nav>
         </div>
